@@ -7,7 +7,7 @@ export const siteConfig = {
   name: 'VersoTech Solutions',
   tagline: 'Empowering Modern Businesses with Intelligent Solutions Through AI & Automation',
   description: 'VersoTech Solutions delivers QA Automation, AI Solutions, Custom Software, Web & Mobile Apps, DevOps, Cloud, and IT Consulting.',
-  url: '[versotech.com](https://versotech.com)',
+  url: 'https://versotechsolutions.com',
   email: 'admin@versotechsolutions.com',
   phone: '+91 7397393985, +91 7397393986',
   whatsapp: ['917397393985','917397393986'],
