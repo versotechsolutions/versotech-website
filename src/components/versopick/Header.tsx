@@ -56,7 +56,7 @@ export default function Header() {
       className="relative inline-flex items-center gap-2 rounded-full border border-vp-navy/15 px-3 py-2 text-sm font-semibold text-vp-navy hover:border-vp-gold"
     >
       <GitCompareArrows className="w-4 h-4" aria-hidden="true" />
-      <span className="hidden sm:inline">Compare</span>
+      <span className="sr-only sm:not-sr-only">Compare Products</span>
       {ids.length > 0 && (
         <span className="grid min-w-5 h-5 place-items-center rounded-full bg-vp-gold px-1 text-[11px] font-bold text-vp-navy">
           {ids.length}
@@ -112,7 +112,7 @@ export default function Header() {
                   ...categories.map((c) => ({ href: `/versopick/${c.slug}`, label: c.name })),
                   { href: '/versopick/search', label: 'All products' },
                   { href: '/versopick/guides', label: 'Buying guides' },
-                  { href: '/versopick/compare', label: 'Compare' },
+                  { href: '/versopick/compare', label: 'Compare Products' },
                   { href: '/versopick/about', label: 'How we pick' },
                 ].map((l) => (
                   <li key={l.href}>
