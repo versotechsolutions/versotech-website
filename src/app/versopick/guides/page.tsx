@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
+import { vpMetadata } from '@/lib/versopick/seo'
 import { guides } from '@/lib/versopick/guides'
 import GuideCard from '@/components/versopick/GuideCard'
+import { AffiliateDisclosure } from '@/components/versopick/Notices'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = vpMetadata({
+  path: '/versopick/guides',
   title: 'Buying guides',
   description: 'Plain-English buying guides from VERSOPICK to help you choose with confidence.',
-}
+})
 
 export default function GuidesPage() {
   const [lead, ...rest] = guides
@@ -27,6 +30,7 @@ export default function GuidesPage() {
             <GuideCard key={g.slug} guide={g} />
           ))}
         </div>
+        <AffiliateDisclosure compact />
       </section>
     </>
   )

@@ -51,6 +51,9 @@ export default function VpImageFrame({
           fill
           sizes={sizes}
           priority={priority}
+          // Remote images (e.g. future Amazon API images) bypass the optimiser so they are never
+          // stored or cached by us, as Amazon's Operating Agreement requires.
+          unoptimized={isRemote(image.src)}
           placeholder={typeof image.src === 'object' && image.src.blurDataURL ? 'blur' : 'empty'}
           className={cn(fit === 'cover' ? 'object-cover' : 'object-contain p-6 bg-white')}
           style={image.focus ? { objectPosition: image.focus } : undefined}
@@ -61,6 +64,11 @@ export default function VpImageFrame({
       {children}
     </div>
   )
+}
+
+/** True for absolute http(s) URLs, i.e. images not hosted in this project. */
+export function isRemote(src: VpImage['src']): boolean {
+  return typeof src === 'string' && /^https?:\/\//i.test(src)
 }
 
 function ArtPlaceholder({

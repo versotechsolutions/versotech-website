@@ -35,6 +35,7 @@ export default function Footer() {
             <li><Link href="/versopick/guides" className="hover:text-white">Buying guides</Link></li>
             <li><Link href="/versopick/compare" className="hover:text-white">Compare products</Link></li>
             <li><Link href="/versopick/about" className="hover:text-white">How we pick</Link></li>
+            <li><Link href="/versopick/contact" className="hover:text-white">Contact us</Link></li>
           </ul>
         </div>
 
@@ -53,6 +54,12 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row sm:justify-between gap-2 text-xs text-vp-cream/60">
           <p>© {new Date().getFullYear()} {vpBrand.name}. All rights reserved.</p>
+          <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-1">
+            <Link href="/versopick/privacy" className="underline-offset-2 hover:text-white hover:underline">Privacy Policy</Link>
+            <Link href="/versopick/terms" className="underline-offset-2 hover:text-white hover:underline">Terms of Use</Link>
+            <Link href="/versopick/contact" className="underline-offset-2 hover:text-white hover:underline">Contact</Link>
+            <Link href="/versopick/about#disclosure" className="underline-offset-2 hover:text-white hover:underline">Affiliate disclosure</Link>
+          </nav>
           <p>
             A{' '}
             <Link href={vpBrand.parent.href} className="underline underline-offset-2 hover:text-white">

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { vpMetadata } from '@/lib/versopick/seo'
 import { Suspense } from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -21,7 +22,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = getCategory((await params).category)
   if (!category) return {}
-  return { title: category.name, description: category.description }
+  return vpMetadata({ path: `/versopick/${category.slug}`, title: category.name, description: category.description })
 }
 
 export default async function CategoryPage({ params }: Props) {

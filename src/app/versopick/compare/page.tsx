@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
+import { vpMetadata } from '@/lib/versopick/seo'
 import { Suspense } from 'react'
 import CompareView from './CompareView'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = vpMetadata({
+  path: '/versopick/compare',
   title: 'Compare products',
   description: 'Compare up to four VERSOPICK products side by side.',
-}
+})
 
 export default function ComparePage() {
   return (

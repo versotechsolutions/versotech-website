@@ -114,6 +114,7 @@ export default function Header() {
                   { href: '/versopick/guides', label: 'Buying guides' },
                   { href: '/versopick/compare', label: 'Compare Products' },
                   { href: '/versopick/about', label: 'How we pick' },
+                  { href: '/versopick/contact', label: 'Contact' },
                 ].map((l) => (
                   <li key={l.href}>
                     <Link

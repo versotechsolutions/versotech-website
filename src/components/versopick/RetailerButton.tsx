@@ -9,19 +9,22 @@ import { cn } from '@/lib/utils'
  */
 export default function RetailerButton({ product, className }: { product: Product; className?: string }) {
   if (!product.isDemo && product.retailerUrl) {
+    // Link-level disclosure: a visible label right at the point of the affiliate link.
     return (
-      <a
-        href={product.retailerUrl}
-        target="_blank"
-        rel="sponsored nofollow noopener noreferrer"
-        className={cn(
-          'inline-flex items-center justify-center gap-2 rounded-xl bg-vp-navy px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-vp-navy-soft',
-          className
-        )}
-      >
-        Check price at retailer <ExternalLink className="w-4 h-4" aria-hidden="true" />
-        <span className="sr-only">(affiliate link, opens in a new tab)</span>
-      </a>
+      <span className={cn('inline-flex flex-col items-stretch gap-1', className)}>
+        <a
+          href={product.retailerUrl}
+          target="_blank"
+          rel="sponsored nofollow noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-vp-navy px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-vp-navy-soft"
+        >
+          Check price at retailer <ExternalLink className="w-4 h-4" aria-hidden="true" />
+          <span className="sr-only">(affiliate link, opens in a new tab)</span>
+        </a>
+        <a href="/versopick/about#disclosure" className="text-center text-[11px] text-vp-navy/60 underline-offset-2 hover:underline">
+          Affiliate link: we may earn a commission
+        </a>
+      </span>
     )
   }
   return (

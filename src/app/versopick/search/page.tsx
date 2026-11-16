@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { vpMetadata } from '@/lib/versopick/seo'
 import { Suspense } from 'react'
 import { products, queryProducts } from '@/lib/versopick/products'
 import CategoryNav from '@/components/versopick/CategoryNav'
@@ -6,10 +7,11 @@ import { AffiliateDisclosure } from '@/components/versopick/Notices'
 import ProductBrowser from '@/components/versopick/ProductBrowser'
 import { ProductGrid } from '@/components/versopick/ProductCard'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = vpMetadata({
+  path: '/versopick/search',
   title: 'Search all products',
   description: 'Search, filter and sort every VERSOPICK product across all categories.',
-}
+})
 
 export default function SearchPage() {
   return (

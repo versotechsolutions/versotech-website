@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { VpImage } from '@/lib/versopick/images'
 import { RATIOS } from '@/lib/versopick/ratios'
 import { cn } from '@/lib/utils'
-import VpImageFrame from './VpImage'
+import VpImageFrame, { isRemote } from './VpImage'
 
 /**
  * Product image gallery for product detail pages: large square main image, previous/next
@@ -77,7 +77,7 @@ export default function ProductGallery({
                   i === index ? 'border-vp-gold' : 'border-transparent opacity-70 hover:opacity-100'
                 )}
               >
-                <Image src={img.src} alt="" fill sizes="96px" className="object-contain p-1.5" />
+                <Image src={img.src} alt="" fill sizes="96px" unoptimized={isRemote(img.src)} className="object-contain p-1.5" />
               </button>
             </li>
           ))}

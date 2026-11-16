@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Manrope, Playfair_Display } from 'next/font/google'
 import { vpBrand } from '@/lib/versopick/brand'
+import { VP_ORIGIN, vpMetadata } from '@/lib/versopick/seo'
 import { CompareProvider } from '@/components/versopick/CompareProvider'
 import CompareTray from '@/components/versopick/CompareTray'
 import Footer from '@/components/versopick/Footer'
@@ -9,9 +10,16 @@ import Header from '@/components/versopick/Header'
 const display = Playfair_Display({ subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-vp-display', display: 'swap' })
 const sans = Manrope({ subsets: ['latin'], variable: '--font-vp-sans', display: 'swap' })
 
+// Layout defaults: Open Graph/Twitter tags with the hero image. Each page adds its own canonical
+// URL via vpMetadata(); the layout deliberately sets none, so pages never inherit a wrong one.
+const { openGraph, twitter } = vpMetadata({ path: '/versopick', description: vpBrand.description })
+
 // PRE-LAUNCH: every /versopick page is noindex/nofollow (children inherit this).
-// Remove the `robots` block (and add the routes to src/app/sitemap.ts) only at public launch.
+// Remove the `robots` block (and add the routes to src/app/sitemap.ts) only at public launch,
+// after the readiness review. Never enable it automatically.
 export const metadata: Metadata = {
+  // Resolves relative canonical / Open Graph URLs for VERSOPICK pages only (root layout untouched).
+  metadataBase: new URL(VP_ORIGIN),
   // `absolute` stops the root layout's "| VersoTech Solutions" template applying here.
   title: { absolute: `${vpBrand.name} — ${vpBrand.tagline}`, template: `%s | ${vpBrand.name}` },
   description: vpBrand.description,
@@ -21,13 +29,8 @@ export const metadata: Metadata = {
     follow: false,
     googleBot: { index: false, follow: false },
   },
-  openGraph: {
-    title: `${vpBrand.name} — ${vpBrand.tagline}`,
-    description: vpBrand.message,
-    siteName: vpBrand.name,
-    type: 'website',
-  },
-  twitter: { card: 'summary_large_image', title: vpBrand.name, description: vpBrand.message },
+  openGraph,
+  twitter,
   // Replaces the VersoTech icons inherited from the root layout (src/app/versopick/icon.svg)
   icons: { icon: [{ url: '/versopick/icon.svg', type: 'image/svg+xml' }] },
 }

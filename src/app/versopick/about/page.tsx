@@ -1,14 +1,16 @@
 import type { Metadata } from 'next'
+import { vpMetadata } from '@/lib/versopick/seo'
 import Link from 'next/link'
 import { ArrowRight, FlaskConical } from 'lucide-react'
 import { SPONSORED_LABEL, vpBrand, vpDemoNotice, vpDisclosure } from '@/lib/versopick/brand'
 import { categories } from '@/lib/versopick/categories'
 import { allImageCredits } from '@/lib/versopick/images'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = vpMetadata({
+  path: '/versopick/about',
   title: 'About VERSOPICK & how we pick',
   description: 'How VERSOPICK chooses and presents products, how the site is funded, and how affiliate links work.',
-}
+})
 
 // NOTE FOR EDITORS: keep every statement on this page true in practice. Do not add promises
 // (e.g. "brands can never pay to be included") unless that policy is formally adopted and followed.
@@ -164,7 +166,7 @@ export default function AboutPage() {
           <Link href="/versopick/search" className="inline-flex items-center justify-center gap-2 rounded-xl bg-vp-navy px-5 py-3 font-semibold text-white hover:bg-vp-navy-soft">
             Browse products <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </Link>
-          <Link href="/contact" className="inline-flex items-center justify-center rounded-xl border border-vp-navy/20 px-5 py-3 font-semibold hover:border-vp-navy">
+          <Link href="/versopick/contact" className="inline-flex items-center justify-center rounded-xl border border-vp-navy/20 px-5 py-3 font-semibold hover:border-vp-navy">
             Contact the team
           </Link>
         </div>

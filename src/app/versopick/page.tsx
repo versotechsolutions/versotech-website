@@ -1,6 +1,8 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Award, Compass, GitCompareArrows, ListChecks, Search, ShieldCheck, Sofa, Sparkles } from 'lucide-react'
 
+import { vpBrand } from '@/lib/versopick/brand'
 import { categories } from '@/lib/versopick/categories'
 import { guides } from '@/lib/versopick/guides'
 import { categoryImages, heroImage } from '@/lib/versopick/images'
@@ -11,6 +13,9 @@ import VpImageFrame from '@/components/versopick/VpImage'
 import { ProductGrid } from '@/components/versopick/ProductCard'
 import ProductComparison from '@/components/versopick/ProductComparison'
 import SectionHeading from '@/components/versopick/SectionHeading'
+import { vpMetadata } from '@/lib/versopick/seo'
+
+export const metadata: Metadata = vpMetadata({ path: '/versopick', description: vpBrand.description })
 
 const container = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'
 
