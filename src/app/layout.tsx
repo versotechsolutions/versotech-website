@@ -1,9 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import ThemeProvider from '@/components/layout/ThemeProvider'
-import FloatingButtons from '@/components/ui/FloatingButtons'
 import { siteConfig } from '@/lib/data'
 
 export const metadata: Metadata = {
@@ -32,12 +29,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
-        <ThemeProvider>
-          <Navbar />
-          <main className="min-h-screen pt-20">{children}</main>
-          <Footer />
-          <FloatingButtons />
-        </ThemeProvider>
+        {/* Site chrome (header/footer) lives in each section's own layout, e.g. (versotech)/layout.tsx */}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )
