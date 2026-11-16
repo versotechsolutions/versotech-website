@@ -19,10 +19,22 @@ const config: Config = {
           900: '#1e3a8a',
           950: '#172554',
         },
+        // VERSOPICK brand palette (used only under /versopick)
+        vp: {
+          navy: '#0B1F3A',
+          'navy-soft': '#1A3358',
+          gold: '#C9A24A',
+          'gold-deep': '#8A6A1F', // gold dark enough for text on cream/white
+          cream: '#F8F4EC',
+          'cream-deep': '#EFE7D6',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        // VERSOPICK fonts, provided as CSS variables by src/app/versopick/layout.tsx
+        'vp-display': ['var(--font-vp-display)', 'Georgia', 'serif'],
+        'vp-sans': ['var(--font-vp-sans)', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
